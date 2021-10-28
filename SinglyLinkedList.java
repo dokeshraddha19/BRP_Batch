@@ -1,5 +1,6 @@
 package demo;
 
+
 public class SinglyLinkedList {
 	class Node{
 		int data; //instance variable
@@ -24,16 +25,18 @@ public class SinglyLinkedList {
 		}
 		}
 	
-	public void delete() {
+	public void reverse(Node current) {
 		if(head==null) {
-			System.out.println("List is empty");
+			System.out.println("List is Empty");
+			return;
 		}else {
-			if(head!=tail) {
-				head=head.next;
-			}else {
-				head=tail=null;
+			if(current.next==null) {
+				System.out.print(current.data+" ");
+				return;
+			}
+			reverse(current.next);
+			System.out.print(current.data+" ");
 		}
-	}
 	}
 	public void display() {
 		Node current=head;
@@ -56,10 +59,7 @@ public class SinglyLinkedList {
 		slist.add(50);
 		slist.add(60);
 		slist.display();
-		while(slist.head!=null) {
-			slist.delete();
-			slist.display();
-		}
+		slist.reverse(slist.head);
 	}
 
 
